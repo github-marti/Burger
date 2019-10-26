@@ -10,8 +10,8 @@
   {{#each burgers}}
     {{#unless devoured}}
     <li>
-      <span class="burger-name">{{burger_name}}</span>
-      <button class="devour-button">EAT ME</button>
+      {{burger_name}}
+      <button class="devour-btn" data-id={{id}}>EAT ME</button>
     </li>
     {{/unless}}
   {{/each}}
@@ -22,7 +22,8 @@
   {{#each burgers}}
     {{#if devoured}}
     <li>
-      <span class="burger-name">{{burger_name}}</span>
+      {{burger_name}}
+      <i class="fas fa-times burger-delete" data-id={{id}}></i>
     </li>
     {{/if}}
   {{/each}}
@@ -33,7 +34,7 @@
 <div class="burger-input">
   <h2>Input Your Burger</h2>
   <form class="burger-form">
-    <textarea></textarea>
+    <input type="text" id="new-burger" name="name">
     <button type="submit" id="submit-btn">Submit</button>
   </form>
 </div>

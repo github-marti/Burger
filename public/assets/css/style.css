@@ -36,31 +36,27 @@ header h1 {
     font-family: "Fredericka the Great", sans-serif;
     margin-top: 10px;
     padding-bottom: 10px;
-    border-bottom: 2px solid white;
 }
 
 .burger-container li {
     font-family: "Cutive Mono", sans-serif;
-    padding: 0 10px;
-    border-radius: 5px;
     overflow: auto;
-    height: 60px;
 }
 
 .burger-container ul:first-child {
     margin-right: 0;
 }
 
-.burger-name {
-    line-height: 60px;
-}
-
 #burgers-to-eat li {
     background: #ffec41;
     color: black;
+    line-height: 60px;
+    margin: 5px 0;
+    padding: 0 10px;
+    border-radius: 5px;
 }
 
-.devour-button {
+.devour-btn {
     cursor: pointer;
     font-size: .8em;
     float: right;
@@ -72,7 +68,13 @@ header h1 {
 
 #burgers-eaten li {
     color: white;
-    border: 2px solid white;
+    margin: 10px 0;
+    border-bottom: 2px solid white;
+}
+
+#burgers-eaten i {
+    cursor: pointer;
+    float: right;
 }
 
 .burger-input {
@@ -81,10 +83,12 @@ header h1 {
     margin-bottom: 20px;
 }
 
-.burger-input textarea {
+#new-burger {
+    font-size: 1em;
     width: 400px;
-    height: 200px;
+    height: 100px;
     padding: 20px;
+    border: 1px solid black;
     border-radius: 5px;
 }
 
