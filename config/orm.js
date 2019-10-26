@@ -44,16 +44,9 @@ var orm = {
       });
     });
   },
-  insertOne: function(table, cols, vals, cb) {
-    new Promise ((resolve, reject) => {
-      var queryString = "INSERT INTO " + table;
-
-      queryString += " (";
-      queryString += cols.toString();
-      queryString += ") ";
-      queryString += "VALUES (";
-      queryString += printQuestionMarks(vals.length);
-      queryString += ") ";
+  insertOne: function(table, cols, vals) {
+    return new Promise ((resolve, reject) => {
+      var queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`
 
       console.log(queryString);
 
@@ -67,14 +60,10 @@ var orm = {
     });
   },
   // An example of objColVals would be {name: panther, sleepy: true}
-  updateOne: function(table, objColVals, condition, cb) {
-    new Promise ((resolve, reject) => {
-      var queryString = "UPDATE " + table;
-
-      queryString += " SET ";
-      queryString += objToSql(objColVals);
-      queryString += " WHERE ";
-      queryString += condition;
+  updateOne: function(table, objColVals, condition) {
+    return new Promise ((resolve, reject) => {
+      // var queryString = "UPDATE " + table;
+      var queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition}`
 
       console.log(queryString);
       connection.query(queryString, function(err, result) {
@@ -86,6 +75,18 @@ var orm = {
       });
     });
   },
+  deleteOne: function(table, condition) {
+    return new Promise ((resolve, reject) => {
+      var queryString = `DELETE FROM ${table} WHERE ${condition}`
+
+      console.log(queryString);
+      connection.query(queryString, function(err, result) {
+        if (err) throw err;
+      
+        resolve(result)
+      });
+    });
+  }
 };
 
 // Export the orm object for the model (cat.js).

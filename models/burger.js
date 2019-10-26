@@ -9,6 +9,9 @@ const burger = {
     },
     updateOne: function(objColVals, condition) {
         return orm.updateOne("burgers", objColVals, condition);
+    },
+    deleteOne: function(condition) {
+        return orm.deleteOne("burgers", condition);
     }
 };
 
