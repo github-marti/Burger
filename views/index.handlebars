@@ -1,24 +1,39 @@
-<h1>Eat a digital burger!</h1>
+<header>
+<h1>No-Calorie Burgers</h1>
+<img src="../assets/images/humberger.png" style="width:150px;">
+</header>
 
-<img>
+<div class="burger-container">
 
-<div class="burgers-to-eat">
+<ul id="burgers-to-eat" class="burger-col">
+  <h2>Burgers To Eat</h2>
   {{#each burgers}}
-    {{#unless eaten}}
-      {{> burgers/burger-block eat=true}}
+    {{#unless devoured}}
+    <li>
+      <span class="burger-name">{{burger_name}}</span>
+      <button class="devour-button">EAT ME</button>
+    </li>
     {{/unless}}
   {{/each}}
-</div>
+</ul>
 
-<div class="burgers-eaten">
+<ul id="burgers-eaten" class="burger-col">
+  <h2>Devoured Burgers</h2>
   {{#each burgers}}
-    {{#if eaten}}
-      {{> burgers/burger-block eat=false}}
+    {{#if devoured}}
+    <li>
+      <span class="burger-name">{{burger_name}}</span>
+    </li>
     {{/if}}
   {{/each}}
+</ul>
+
 </div>
 
-<h2>Input Your Burger</h2>
-<form class="burger-form">
-  <textarea></textarea>
-</form>
+<div class="burger-input">
+  <h2>Input Your Burger</h2>
+  <form class="burger-form">
+    <textarea></textarea>
+    <button type="submit" id="submit-btn">Submit</button>
+  </form>
+</div>
