@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    font-family: 'Fredericka the Great', sans-serif;
+    color: #bd1a1a;
+    background: #ffec41;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3em;
+}
+
+.burger-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.burger-container ul {
+    color: white;
+    background: #bd1a1a;
+    margin: 15px;
+    padding: 20px;
+    list-style-type: none;
+    border-radius: 5px;
+}
+
+.burger-container h2 {
+    font-family: "Fredericka the Great", sans-serif;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+}
+
+.burger-container li {
+    font-family: "Cutive Mono", sans-serif;
+    padding: 0 10px;
+    border-radius: 5px;
+    overflow: auto;
+    height: 60px;
+}
+
+.burger-container ul:first-child {
+    margin-right: 0;
+}
+
+.burger-name {
+    line-height: 60px;
+}
+
+#burgers-to-eat li {
+    background: #ffec41;
+    color: black;
+}
+
+.devour-button {
+    cursor: pointer;
+    font-size: .8em;
+    float: right;
+    padding: 5px;
+    margin: 15px 0;
+    border: 2px solid #202020;
+    font-family: "Cutive Mono", sans-serif;
+}
+
+#burgers-eaten li {
+    color: white;
+    border: 2px solid white;
+}
+
+.burger-input {
+    text-align: center;
+    font-family: "Cutive Mono", sans-serif;
+    margin-bottom: 20px;
+}
+
+.burger-input textarea {
+    width: 400px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#submit-btn {
+    cursor: pointer;
+    font-family: "Cutive Mono", sans-serif;
+    display: block;
+    background: #bd1a1a;
+    color: #ffec41;
+    font-size: 1em;
+    padding: 10px;
+    margin: 10px auto;
+    border-style: none;
+}
+
