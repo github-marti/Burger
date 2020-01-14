@@ -1,9 +1,9 @@
-var connection = require("../config/connections");
+const connection = require("../config/connections");
 
 function printQuestionMarks(num) {
-  var arr = [];
+  let arr = [];
 
-  for (var i = 0; i < num; i++) {
+  for (let i = 0; i < num; i++) {
     arr.push("?");
   }
 
@@ -12,11 +12,11 @@ function printQuestionMarks(num) {
 
 // Helper function to convert object key/value pairs to SQL syntax
 function objToSql(ob) {
-  var arr = [];
+  let arr = [];
 
   // loop through the keys and push the key/value as a string int arr
-  for (var key in ob) {
-    var value = ob[key];
+  for (let key in ob) {
+    let value = ob[key];
     // check to skip hidden properties
     if (Object.hasOwnProperty.call(ob, key)) {
       // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
@@ -34,10 +34,10 @@ function objToSql(ob) {
 }
 
 // Object for all our SQL statement functions.
-var orm = {
+const orm = {
   selectAll: function(tableInput) {
     return new Promise ((resolve, reject) => {
-      var queryString = "SELECT * FROM " + tableInput + ";";
+      const queryString = "SELECT * FROM " + tableInput + ";";
       connection.query(queryString, function(err, result) {
         if (err) throw err;
         resolve(result);
@@ -46,7 +46,7 @@ var orm = {
   },
   insertOne: function(table, cols, vals) {
     return new Promise ((resolve, reject) => {
-      var queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`
+      const queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`
 
       console.log(queryString);
 
@@ -62,7 +62,7 @@ var orm = {
   // An example of objColVals would be {name: panther, sleepy: true}
   updateOne: function(table, objColVals, condition) {
     return new Promise ((resolve, reject) => {
-      var queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition}`;
+      const queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition}`;
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;
@@ -73,7 +73,7 @@ var orm = {
   },
   deleteOne: function(table, condition) {
     return new Promise ((resolve, reject) => {
-      var queryString = `DELETE FROM ${table} WHERE ${condition}`;
+      const queryString = `DELETE FROM ${table} WHERE ${condition}`;
       connection.query(queryString, function(err, result) {
         if (err) throw err;
         resolve(result);
