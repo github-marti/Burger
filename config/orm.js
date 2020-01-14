@@ -62,28 +62,21 @@ var orm = {
   // An example of objColVals would be {name: panther, sleepy: true}
   updateOne: function(table, objColVals, condition) {
     return new Promise ((resolve, reject) => {
-      // var queryString = "UPDATE " + table;
-      var queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition}`
-
-      console.log(queryString);
+      var queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition}`;
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;
         }
-
         resolve(result);
       });
     });
   },
   deleteOne: function(table, condition) {
     return new Promise ((resolve, reject) => {
-      var queryString = `DELETE FROM ${table} WHERE ${condition}`
-
-      console.log(queryString);
+      var queryString = `DELETE FROM ${table} WHERE ${condition}`;
       connection.query(queryString, function(err, result) {
         if (err) throw err;
-      
-        resolve(result)
+        resolve(result);
       });
     });
   }
